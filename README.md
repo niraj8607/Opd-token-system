@@ -133,7 +133,7 @@ Token
   status: ['pending','confirmed','completed','cancelled','no_show'],
   isEmergency: Boolean
 }
-TimeSlot
+Timeslot
 {
   doctorId: ObjectId,
   date: Date,
@@ -144,6 +144,7 @@ TimeSlot
   reservedEmergencySlots: Number,
   status: ['available','full','completed','cancelled']
 }
+
 🧮 Allocation Algorithm
 Validate doctor availability
 
