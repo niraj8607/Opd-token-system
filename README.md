@@ -115,35 +115,43 @@ All failures return meaningful HTTP status codes and messages.
 
 🗄️ Data Schema
 Doctor
-{
-  name: String,
-  specialization: String,
-  timeSlots: [{ startTime, endTime, maxCapacity }],
-  workingDays: [String]
-}
+| Field Name            | Data Type     | Description                                |
+| --------------------- | ------------- | ------------------------------------------ |
+| name                  | String        | Doctor ka naam                             |
+| specialization        | String        | Doctor ki specialization (e.g. Cardiology) |
+| timeSlots             | Array         | Doctor ke available time slots             |
+| timeSlots.startTime   | String        | Slot start time                            |
+| timeSlots.endTime     | String        | Slot end time                              |
+| timeSlots.maxCapacity | Number        | Maximum patients per slot                  |
+| workingDays           | Array[String] | Doctor ke working days                     |
+
 Token
-{
-  tokenNumber: String,
-  patientName: String,
-  patientAge: Number,
-  doctorId: ObjectId,
-  timeSlot: { startTime, endTime },
-  source: ['online','walkin','priority','followup','emergency'],
-  priority: Number,
-  status: ['pending','confirmed','completed','cancelled','no_show'],
-  isEmergency: Boolean
-}
+| Field Name         | Data Type       | Description                                             |
+| ------------------ | --------------- | ------------------------------------------------------- |
+| tokenNumber        | String (Unique) | Generated token number                                  |
+| patientName        | String          | Patient ka naam                                         |
+| patientAge         | Number          | Patient ki age                                          |
+| doctorId           | ObjectId        | Assigned doctor ka ID                                   |
+| timeSlot           | Object          | Assigned time slot                                      |
+| timeSlot.startTime | String          | Appointment start time                                  |
+| timeSlot.endTime   | String          | Appointment end time                                    |
+| source             | Enum            | `online / walkin / priority / followup / emergency`     |
+| priority           | Number          | Patient priority (lower = higher priority)              |
+| status             | Enum            | `pending / confirmed / completed / cancelled / no_show` |
+| isEmergency        | Boolean         | Emergency patient flag                                  |
+
 Timeslot
-{
-  doctorId: ObjectId,
-  date: Date,
-  startTime: String,
-  endTime: String,
-  maxCapacity: Number,
-  currentCount: Number,
-  reservedEmergencySlots: Number,
-  status: ['available','full','completed','cancelled']
-}
+| Field Name             | Data Type | Description                                |
+| ---------------------- | --------- | ------------------------------------------ |
+| doctorId               | ObjectId  | Doctor reference                           |
+| date                   | Date      | Slot date                                  |
+| startTime              | String    | Slot start time                            |
+| endTime                | String    | Slot end time                              |
+| maxCapacity            | Number    | Slot ka maximum capacity                   |
+| currentCount           | Number    | Current allocated tokens                   |
+| reservedEmergencySlots | Number    | Emergency ke liye reserved slots           |
+| status                 | Enum      | `available / full / completed / cancelled` |
+
 
 🧮 Allocation Algorithm
 Validate doctor availability
