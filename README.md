@@ -57,29 +57,34 @@ Duplicate token prevention
 Invalid doctor / slot detection
 
 🧠 Priority Logic
-Priority	Type	Description
-1️⃣	Emergency	Life-threatening conditions
-2️⃣	Paid Priority	Patients who paid for priority
-3️⃣	Follow-up	Returning patients
-4️⃣	Online Booking	Pre-scheduled appointments
-5️⃣	Walk-in	Direct OPD registration
+| Priority | Type           | Description                    |
+| -------- | -------------- | ------------------------------ |
+| 1️⃣      | Emergency      | Life-threatening conditions    |
+| 2️⃣      | Paid Priority  | Patients who paid for priority |
+| 3️⃣      | Follow-up      | Returning patients             |
+| 4️⃣      | Online Booking | Pre-scheduled appointments     |
+| 5️⃣      | Walk-in        | Direct OPD registration        |
+
 Lower number = Higher Priority
 
 🛠️ API Endpoints
-👨‍⚕️ Doctors
-Method	Endpoint	Description
-POST	/api/doctors	Create new doctor
-GET	/api/doctors	Fetch all doctors
-GET	/api/doctors/:doctorId/schedule	Get doctor schedule
-PUT	/api/doctors/:doctorId/slots	Update doctor slots
+| Method | Endpoint                          | Description         |
+| ------ | --------------------------------- | ------------------- |
+| POST   | `/api/doctors`                    | Create new doctor   |
+| GET    | `/api/doctors`                    | Fetch all doctors   |
+| GET    | `/api/doctors/:doctorId/schedule` | Get doctor schedule |
+| PUT    | `/api/doctors/:doctorId/slots`    | Update doctor slots |
+
 🎟️ Tokens
-Method	Endpoint	Description
-POST	/api/tokens	Create new token
-POST	/api/tokens/emergency	Add emergency token
-PUT	/api/tokens/:tokenId/cancel	Cancel token
-PUT	/api/tokens/:tokenId/no-show	Mark no-show
-GET	/api/tokens/doctor/:doctorId	Tokens by doctor
-POST	/api/tokens/reallocate/:doctorId	Reallocate tokens
+| Method | Endpoint                           | Description         |
+| ------ | ---------------------------------- | ------------------- |
+| POST   | `/api/tokens`                      | Create new token    |
+| POST   | `/api/tokens/emergency`            | Add emergency token |
+| PUT    | `/api/tokens/:tokenId/cancel`      | Cancel token        |
+| PUT    | `/api/tokens/:tokenId/no-show`     | Mark no-show        |
+| GET    | `/api/tokens/doctor/:doctorId`     | Tokens by doctor    |
+| POST   | `/api/tokens/reallocate/:doctorId` | Reallocate tokens   |
+
 ⚠️ Edge Cases Handled
 Emergency insertion into full slots
 
