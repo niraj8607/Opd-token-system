@@ -166,47 +166,6 @@ Assign token & estimate consultation time
 
 Update slot counters
 
-🔄 Reallocation Logic
-Triggered on:
-
-Cancellation
-
-No-show
-
-Process:
-
-Free slot capacity
-
-Check waiting list
-
-Promote highest priority patient
-
-Update estimated times
-
-Notify next patient
-
-🚑 Emergency Handling
-Uses reserved emergency slots first
-
-Allows controlled overflow (+1)
-
-Assigns highest priority
-
-Suggests alternative doctors if fully occupied
-
-🧪 Simulation
-Simulation demonstrates:
-
-3 doctors with different specializations
-
-15 regular patients
-
-1 emergency patient
-
-Cancellations and no-shows
-
-Automatic reallocation in action
-
 ⚙️ Installation & Setup
 1️⃣ Clone Repository
 git clone <repository-url>
